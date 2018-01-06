@@ -1,6 +1,8 @@
 # Supreme API
 ## A NodeJS API for [supremenewyork.com](http://www.supremenewyork.com/)
 
+This can be adapted to work on a majority of websites. 
+
 
 ### How to install
 ```npm install ```
