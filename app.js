@@ -19,9 +19,11 @@ api.getAll = (category, callback) =>{
     rp(options).then(($)=>{
         // console.log($)
         console.log($('img').length)
+        callback( $('img').length)
         return $;
     }).catch((err=>{
         console.log(err)
+        callback(null, err)
         return err;
     }))
 }

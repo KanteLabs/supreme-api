@@ -8,6 +8,8 @@ api.getAll(category, (product, err) => {
         console.log(err);
         return err;
     }
-    console.log(category, product.name);
+    console.log("Cat")
+    console.log(category, product);
+    return product;
 });
 
