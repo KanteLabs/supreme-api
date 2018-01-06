@@ -9,3 +9,11 @@ const options = {
         return cheerio.load(body);
     }
 }
+
+var api = {};
+
+api.getProducts = function(){
+
+}
+
+module.exports = api;
