@@ -28,4 +28,15 @@ api.getAll = (category, callback) =>{
     }))
 }
 
+api.getItem = (category, callback) => {
+    options.uri += `/shop/${category}`;
+
+    rp(options).then(($)=>{
+        console.log($('#details h1').text())
+        return $;
+    }).catch((err)=>{
+        console.log(`error: ${err.statusCode}`)
+    })
+}
+
 module.exports = api;
