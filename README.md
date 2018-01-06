@@ -3,11 +3,9 @@
 
 
 ### How to install
-```npm install supreme-api --save```
+```npm install ```
 
-Check out the [docs](https://github.com/dzt/supreme-api/wiki/Docs)!
-
-### Usage
+<!-- ### Usage
 ```javascript
 const supreme = require('supreme-api');
 
@@ -69,7 +67,7 @@ supreme.seek(category, keywords, style, (product, err) => {
     console.log(product.title); // example => Supreme®/UNDERCOVER Wool Overcoat
 });
 
-```
+``` -->
 
 ### Future of this project
 * Watch and seek for changes on individual items. (Coming Soon)
@@ -79,4 +77,4 @@ Want to make a contribution? Fork the repo, add your changes, and submit a pull 
 
 
 ## License
-supreme-api is licensed under [MIT License](https://github.com/dzt/supreme-api/blob/master/LICENSE).
+supreme-api-wrapper is licensed under [MIT License](https://github.com/KanteLabs/supreme-api-wrapper/blob/master/LICENSE).
