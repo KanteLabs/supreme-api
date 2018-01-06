@@ -1,3 +1,4 @@
-var config = require('./config')
+const rp = require('request-promise');
+const cheerio = require('cheerio');
 
-console.log(config.url)
+var config = require('./config');
