@@ -1,10 +1,13 @@
 {
-  "name": "supreme-api",
-  "version": "1.0.6",
-  "description": "Node.js API for supremenewyork.com",
-  "main": "index.js",
+  "name": "supreme-api-wrapper",
+  "version": "1.0.0",
+  "description": "API built around supremenewyork.com",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "debugger": "DEBUG=*:* npm run dev"
   },
   "repository": {
     "type": "git",
