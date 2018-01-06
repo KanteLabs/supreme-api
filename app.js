@@ -1,4 +1,10 @@
 const rp = require('request-promise');
 const cheerio = require('cheerio');
 
-var config = require('./config');
+const url = 'https://www.supremenewyork.com';
+const options = {
+    uri: url,
+    transform: function(body) {
+        return cheerio.load(body);
+    }
+}
