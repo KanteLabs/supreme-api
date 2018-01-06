@@ -14,7 +14,7 @@ const category = 'new';
 // });
 
 
-supreme.getItems('shoes', (product, err) => {
+supreme.getItems('accessories', (product, err) => {
     if (err) {
         console.log(err);
         return err;
@@ -22,10 +22,3 @@ supreme.getItems('shoes', (product, err) => {
     console.log(product);
 });
 
-// supreme.getItem('http://www.supremenewyork.com/shop/shoes/rkxgtf1n2/rgrx634kb', (item, err) => {
-//      if (err) {
-//          console.log(err);
-//          return err;
-//      }
-//      //console.log(item);
-//  });

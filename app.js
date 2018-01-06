@@ -6,7 +6,7 @@ var request = require('request').defaults({
 
 var api = {};
 
-api.url = 'http://www.supremenewyork.com';
+api.url = 'https://www.supremenewyork.com';
 
 String.prototype.capitalizeEachWord = function() {
     return this.replace(/\w\S*/g, function(txt) {
