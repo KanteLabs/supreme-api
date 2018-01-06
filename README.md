@@ -1,78 +1,19 @@
-# Supreme API
+# Supreme API Wrapper
 ## A NodeJS API for [supremenewyork.com](http://www.supremenewyork.com/)
 
 This can be adapted to work on a majority of websites. 
 
 
-### How to install
+## How to install
 ```npm install ```
 
-<!-- ### Usage
+## Usage
 ```javascript
-const supreme = require('supreme-api');
+```
 
-supreme.getItems('all', (items, err) => {
-    if (err) {
-        console.log(err);
-        return err;
-    }
-    console.log(items);
-});
-
-supreme.getItem('http://www.supremenewyork.com/shop/jackets/fman5r0xy/aw5dopam2', (item, err) => {
-    if (err) {
-        console.log(err);
-        return err;
-    }
-    console.log(item);
-});
-
-// check every 5 seconds
-supreme.watchAllItems(5, 'shoes', (items, err) => {
-    if (err) {
-        console.log(err);
-        return err;
-    }
-    console.log(items);
-});
-
-// Cancel Item watch
-supreme.stopWatchingAllItems((status, err) => {
-    if (err) {
-        console.log(err);
-        return err;
-    }
-    console.log(status);
-});
-
-// Look for a new item every 5 seconds
-supreme.onNewItem(5, (product, err) => {
-    if (err) {
-        console.log(err);
-        return err;
-    }
-    console.log('New Release: ' + item.name);
-});
-
-// Find items based on specific keywords
-
-const category = 'jackets';
-const keywords = "UNDERCOVER";
-const style = 'Burgundy';
-
-supreme.seek(category, keywords, style, (product, err) => {
-    if (err) {
-        console.log(err);
-        return err;
-    }
-    console.log(product);
-    console.log(product.title); // example => Supreme®/UNDERCOVER Wool Overcoat
-});
-
-``` -->
-
-### Future of this project
-* Watch and seek for changes on individual items. (Coming Soon)
+## Future Improvements
+* Watch certain items function
+    * watch a category
 
 ## Contribution
 Want to make a contribution? Fork the repo, add your changes, and submit a pull request. Any type of contributions (ideas, bug fixes, fixing typos, etc.) will be appreciated!
