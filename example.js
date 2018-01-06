@@ -1,4 +1,4 @@
-var supreme = require('./index') || require('supreme-api');
+var supreme = require('./app');
 
 // Find Product Based on Keywords
 const keywords = "Small Box";
