@@ -1,20 +1,9 @@
-var supreme = require('./app');
+var api = require('./app');
 
-// Find Product Based on Keywords
-const keywords = "Small Box";
-const style = 'White';
-const category = 'new';
-
-// supreme.seek(category, keywords, style, (product, err) => {
-//     if (err) {
-//         console.log(err);
-//         return err;
-//     }
-//     console.log(product);
-// });
+var category = 'all'
 
 
-supreme.getItems('accessories', (product, err) => {
+api.getAllItems(category, (product, err) => {
     if (err) {
         console.log(err);
         return err;

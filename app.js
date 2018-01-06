@@ -12,8 +12,13 @@ const options = {
 
 var api = {};
 
-api.getProducts = function(){
-
+api.getAllItems = function(category){
+    options.uri += `/shop/${category}/`;
+    rp(options).then((res)=>{
+        console.log(res)
+    }).catch((err=>{
+        console.log(err)
+    }))
 }
 
 module.exports = api;
