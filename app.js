@@ -12,12 +12,17 @@ const options = {
 
 var api = {};
 
-api.getAllItems = function(category){
+api.getAll = (category, callback) =>{
     options.uri += `/shop/${category}/`;
-    rp(options).then((res)=>{
-        console.log(res)
+
+    // '$' is used by cheerio to represent data retrieved 
+    rp(options).then(($)=>{
+        // console.log($)
+        console.log($('img').length)
+        return $;
     }).catch((err=>{
         console.log(err)
+        return err;
     }))
 }
 
