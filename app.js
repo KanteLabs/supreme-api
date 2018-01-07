@@ -13,7 +13,11 @@ const options = {
 var api = {};
 
 api.getAll = (category, callback) =>{
-    options.uri += `/shop/${category}/`;
+    if(category === 'all' || 'new')
+        options.uri += `/shop/${category}/`;
+    else{
+        options.uri += `/shop/all/${category}/`;
+    }
 
     // '$' is used by cheerio to represent data retrieved 
     rp(options).then(($)=>{

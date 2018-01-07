@@ -2,8 +2,15 @@ var api = require('./app');
 
 const categories = {
     all: 'all',
-    sweatshirts: 'sweatshirts',
-    item: 'sweatshirts/riywuemd0/yy8sbq0kn'
+    new: 'new',
+    item: 'sweatshirts/riywuemd0/yy8sbq0kn',
+    category: {
+        sweatshirts: 'sweatshirts',
+        sweatshirts: 'sweatshirts',
+        sweatshirts: 'sweatshirts',
+        sweatshirts: 'sweatshirts',
+        sweatshirts: 'sweatshirts',
+    }
 }
 
 
