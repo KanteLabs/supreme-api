@@ -57,7 +57,6 @@ api.getItem = (category, callback) => {
             variations.push(element.attribs);
         });
 
-        console.log(variations)
         let productData = {
             name: name,
             color: productHTML('p.style.protect').text(),
