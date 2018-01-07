@@ -7,10 +7,10 @@ clone or download and run ```npm install ```
 
 ## Features
 Requests:
-[] All Items
-[] Single Item
-[] Fetch by Categories
-[] Fetch by New
+- [ ] All Items
+- [ ] Single Item
+- [ ] Fetch by Categories
+- [ ] Fetch by New
 
 ## Future Improvements
 * Watch certain items function
