@@ -13,7 +13,7 @@ const categories = {
         pants: 'pants',
         shorts: 'shorts',
         shoes: 'shoes',
-        tops: 'tops',
+        tops: 'tops_sweaters',
     }
 }
 
