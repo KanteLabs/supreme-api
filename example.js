@@ -21,5 +21,5 @@ api.getItem(categories.item, (product, err) => {
         console.log(err);
         return err;
     }
-    console.log(`${product} found`);
+    console.log(product);
 });
