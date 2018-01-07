@@ -51,19 +51,23 @@ api.getItem = (category, callback) => {
     grabProductData = (productHTML)=> {
         let name = productHTML('h1.protect').text();
         let main_image = `http:${productHTML('#img-main').attr('src')}`;
-        let images = {};
+        let images = [];
+
+        productHTML('.styles li a').each((i, element) => {
+            console.log(element.attribs)
+        });
 
         let productData = {
             name: name,
             color: productHTML('p.style.protect').text(),
+            price: productHTML('p.price span').text(),
             main_image: main_image,
             category: productHTML('h1.protect').attr('data-category'),
             date: productHTML('h1.protect').attr('data-rd'),
             season: productHTML('h1.protect').attr('data-ino'),
             description: productHTML('p.description').text()
         }
-        console.log(productData)
-        // callback(productData);
+        callback(productData);
     }
 
     options.uri = url;
