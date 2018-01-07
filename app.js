@@ -51,6 +51,7 @@ api.getItem = (category, callback) => {
     grabProductData = (productHTML)=> {
         let name = productHTML('h1.protect').text();
         let main_image = `http:${productHTML('#img-main').attr('src')}`;
+        let images = {};
 
         let productData = {
             name: name,
@@ -61,7 +62,6 @@ api.getItem = (category, callback) => {
             season: productHTML('h1.protect').attr('data-ino'),
             description: productHTML('p.description').text()
         }
-        // let productData = {productHTML('#container').html()};
         console.log(productData)
         // callback(productData);
     }
