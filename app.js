@@ -34,13 +34,12 @@ api.getAll = (category, callback) =>{
 }
 
 api.getItem = (category, callback) => {
-    let product = {};
     options.uri += `/shop/${category}`;
 
     rp(options)
         .then(($)=>{
             console.log(`found: ${$('#details h1').text()}`)
-            product[$('#details h1').text()] = $('#container').html();
+            grabProductData($);
             return $;
         })
         .catch((err)=>{
@@ -49,8 +48,11 @@ api.getItem = (category, callback) => {
             return err;
         })
 
-    grabProductData = (product)=> {
-        callback(product);
+    grabProductData = (productHTML)=> {
+        let main_image = `http:${productHTML('#img-main').attr('src')}`;
+        // let productData = {productHTML('#container').html()};
+        console.log(main_image)
+        // callback(productData);
     }
 
     options.uri = url;
