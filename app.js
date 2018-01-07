@@ -26,6 +26,9 @@ api.getAll = (category, callback) =>{
         callback(null, err)
         return err;
     }))
+
+    //Resets uri for next query
+    options.uri = url;
 }
 
 api.getItem = (category, callback) => {
@@ -33,10 +36,14 @@ api.getItem = (category, callback) => {
 
     rp(options).then(($)=>{
         console.log($('#details h1').text())
+        callback($('#details h1').text())
         return $;
     }).catch((err)=>{
         console.log(`error: ${err.statusCode}`)
+        console.log(err)
     })
+
+    options.uri = url;
 }
 
 module.exports = api;

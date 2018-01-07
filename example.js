@@ -1,24 +1,25 @@
 var api = require('./app');
 
-var category = 'all'
+const categories = {
+    all: 'all',
+    sweatshirts: 'sweatshirts',
+    item: 'sweatshirts/riywuemd0/yy8sbq0kn'
+}
 
 
-// api.getAll(category, (product, err) => {
-//     if (err) {
-//         console.log(err);
-//         return err;
-//     }
-//     console.log("Cat")
-//     console.log(category, product);
-//     return product;
-// });
-
-
-api.getItem('sweatshirts/riywuemd0/yy8sbq0kn', (product, err) => {
+api.getAll(categories.all, (product, err) => {
     if (err) {
         console.log(err);
         return err;
     }
-    console.log(category, product);
-    return product;
+    console.log(`${product} found in ${categories.all}`);
+});
+
+
+api.getItem(categories.item, (product, err) => {
+    if (err) {
+        console.log(err);
+        return err;
+    }
+    console.log(`${product} found`);
 });
