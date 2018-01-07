@@ -35,15 +35,21 @@ api.getItem = (category, callback) => {
     let product = {};
     options.uri += `/shop/${category}`;
 
-    rp(options).then(($)=>{
-        console.log($('#details h1').text())
-        product[$('#details h1').text()] = $('#container').html();
+    rp(options)
+        .then(($)=>{
+            console.log(`found: ${$('#details h1').text()}`)
+            product[$('#details h1').text()] = $('#container').html();
+            return $;
+        })
+        .catch((err)=>{
+            console.log(`error: ${err.statusCode}`)
+            console.log(err)
+            return err;
+        })
+
+    grabProductData = (product)=> {
         callback(product);
-        return $;
-    }).catch((err)=>{
-        console.log(`error: ${err.statusCode}`)
-        console.log(err)
-    })
+    }
 
     options.uri = url;
 }
