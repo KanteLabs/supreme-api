@@ -17,3 +17,11 @@ api.getItem(categories.item, (product, err) => {
     }
     console.log(product);
 });
+
+api.getAll(categories.category.shirts, (product, err) => {
+    if (err) {
+        console.log(err);
+        return err;
+    }
+    console.log(product);
+});

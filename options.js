@@ -8,7 +8,7 @@ const categories = {
         bags: 'bags',
         accessories: 'accessories',
         skate: 'skate',
-        't-shirts': 't-shirts',
+        shirts: 't-shirts',
     }
 }
 
