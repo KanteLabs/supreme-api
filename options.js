@@ -4,10 +4,11 @@ const categories = {
     item: 'sweatshirts/riywuemd0/yy8sbq0kn',
     category: {
         sweatshirts: 'sweatshirts',
-        sweatshirts: 'sweatshirts',
-        sweatshirts: 'sweatshirts',
-        sweatshirts: 'sweatshirts',
-        sweatshirts: 'sweatshirts',
+        hats: 'hats',
+        bags: 'bags',
+        accessories: 'accessories',
+        skate: 'skate',
+        't-shirts': 't-shirts',
     }
 }
 
