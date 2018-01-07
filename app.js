@@ -51,12 +51,13 @@ api.getItem = (category, callback) => {
     grabProductData = (productHTML)=> {
         let name = productHTML('h1.protect').text();
         let main_image = `http:${productHTML('#img-main').attr('src')}`;
-        let images = [];
+        let variations = [];
 
         productHTML('.styles li a').each((i, element) => {
-            console.log(element.attribs)
+            variations.push(element.attribs);
         });
 
+        console.log(variations)
         let productData = {
             name: name,
             color: productHTML('p.style.protect').text(),
@@ -65,7 +66,8 @@ api.getItem = (category, callback) => {
             category: productHTML('h1.protect').attr('data-category'),
             date: productHTML('h1.protect').attr('data-rd'),
             season: productHTML('h1.protect').attr('data-ino'),
-            description: productHTML('p.description').text()
+            description: productHTML('p.description').text(),
+            variations: variations,
         }
         callback(productData);
     }
