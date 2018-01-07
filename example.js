@@ -1,14 +1,13 @@
 var categories = require('./options')
 var api = require('./app');
 
-api.getAll(categories.all, (product, err) => {
+api.getAll(categories.all, (product, category, err) => {
     if (err) {
         console.log(err);
         return err;
     }
-    console.log(`${product} found in ${categories.all}`);
+    console.log(`${product} found in ${category}`);
 });
-
 
 api.getItem(categories.item, (product, err) => {
     if (err) {
@@ -18,10 +17,10 @@ api.getItem(categories.item, (product, err) => {
     console.log(product);
 });
 
-api.getAll(categories.category.shirts, (product, err) => {
+api.getAll(categories.category.sweatshirts, (product, category, err) => {
     if (err) {
         console.log(err);
         return err;
     }
-    console.log(product);
+    console.log(`${product} found in ${category}`);
 });

@@ -21,9 +21,7 @@ api.getAll = (category, callback) =>{
 
     // '$' is used by cheerio to represent data retrieved 
     rp(options).then(($)=>{
-        // console.log($)
-        console.log($('img').length)
-        callback( $('img').length)
+        callback($('img').length, category)
         return $;
     }).catch((err=>{
         console.log(err)
