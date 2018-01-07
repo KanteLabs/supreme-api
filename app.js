@@ -38,8 +38,7 @@ api.getItem = (category, callback) => {
     rp(options).then(($)=>{
         console.log($('#details h1').text())
         product[$('#details h1').text()] = $('#container').html();
-        console.log(product)
-        callback(product)
+        callback(product);
         return $;
     }).catch((err)=>{
         console.log(`error: ${err.statusCode}`)
