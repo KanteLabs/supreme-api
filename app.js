@@ -54,13 +54,12 @@ api.getItem = (category, callback) => {
 
         let productData = {
             name: name,
+            color: productHTML('p.style.protect').text(),
             main_image: main_image,
-            // details: {
-            //     category: category,
-            //     productNumber: productNumber,
-            //     date: date
-            // },
-            season: productHTML('h1.protect').attr('data-ino')
+            category: productHTML('h1.protect').attr('data-category'),
+            date: productHTML('h1.protect').attr('data-rd'),
+            season: productHTML('h1.protect').attr('data-ino'),
+            description: productHTML('p.description').text()
         }
         // let productData = {productHTML('#container').html()};
         console.log(productData)
