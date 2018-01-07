@@ -1,15 +1,16 @@
 # Supreme API Wrapper
-## A NodeJS API for [supremenewyork.com](http://www.supremenewyork.com/)
-
-This can be adapted to work on a majority of websites. 
+I decided to create a Node.js API for [supremenewyork.com](http://www.supremenewyork.com/), in order to help users keep track of items, that are currently in stock or sold out. This API can be expanded to work with other projects centered around e-commerce, from automatic check out bots, to site monitors. 
 
 
 ## How to install
-```npm install ```
+clone or download and run ```npm install ```
 
-## Usage
-```javascript
-```
+## Features
+Requests:
+[] All Items
+[] Single Item
+[] Fetch by Categories
+[] Fetch by New
 
 ## Future Improvements
 * Watch certain items function
