@@ -9,6 +9,11 @@ const categories = {
         accessories: 'accessories',
         skate: 'skate',
         shirts: 't-shirts',
+        jackets: 'jackets',
+        pants: 'pants',
+        shorts: 'shorts',
+        shoes: 'shoes',
+        tops: 'tops',
     }
 }
 
