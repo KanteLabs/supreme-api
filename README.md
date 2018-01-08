@@ -11,6 +11,7 @@ Requests:
 - [ ] Single Item
 - [ ] Fetch by Categories
 - [ ] Fetch by New
+- [x] Check if Shop is Open
 
 ## Future Improvements
 * Watch certain items function
