@@ -24,8 +24,8 @@ api.getAll = (category, callback) =>{
         callback($('img').length, category)
         return $;
     }).catch((err=>{
-        console.log(err)
-        callback(null, err)
+        console.log(err.statusCode)
+        callback(null, null, err.statusCode)
         return err;
     }))
 
@@ -44,7 +44,7 @@ api.getItem = (category, callback) => {
         })
         .catch((err)=>{
             console.log(`error: ${err.statusCode}`)
-            console.log(err)
+            callback(null, err.statusCode)
             return err;
         })
 

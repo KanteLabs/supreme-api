@@ -3,10 +3,11 @@ var api = require('./app');
 
 api.getAll(categories.all, (product, category, err) => {
     if (err) {
-        console.log(err);
+        console.log('error: ' + err);
         return err;
+    }else{
+        console.log(`${product} found in ${category}`);
     }
-    console.log(`${product} found in ${category}`);
 });
 
 api.getItem(categories.item, (product, err) => {
@@ -14,7 +15,7 @@ api.getItem(categories.item, (product, err) => {
         console.log(err);
         return err;
     }
-    console.log(product);
+    // console.log(product);
 });
 
 api.getAll(categories.category.sweatshirts, (product, category, err) => {
