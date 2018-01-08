@@ -24,8 +24,10 @@ api.getAll = (category, callback) =>{
         callback($('img').length, category)
         return $;
     }).catch((err=>{
-        console.log(err.statusCode)
-        callback(null, null, err)
+        if(err.statusCode === 404){
+            console.log('error: 404 supreme webshop is closed. check back later')
+            callback(null, null, err.statusCode)
+        }
         return err;
     }))
 
@@ -43,8 +45,10 @@ api.getItem = (category, callback) => {
             return $;
         })
         .catch((err)=>{
-            console.log(`error: ${err.statusCode}`)
-            callback(null, err.statusCode)
+            if(err.statusCode === 404){
+                console.log('error: 404 supreme webshop is closed. check back later')
+                callback(null, err.statusCode)
+            }
             return err;
         })
 
