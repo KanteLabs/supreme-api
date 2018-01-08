@@ -25,7 +25,7 @@ api.getAll = (category, callback) =>{
         return $;
     }).catch((err=>{
         console.log(err.statusCode)
-        callback(null, null, err.statusCode)
+        callback(null, null, err)
         return err;
     }))
 
