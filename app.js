@@ -79,17 +79,34 @@ api.getItem = (category, callback) => {
 }
 
 api.getRandom = (callback) => {
-    options.uri += '/random3/';
+    options.uri += '/random/';
 
     rp(options).then(($)=>{
-        console.log($('div.random-item').length)
+        console.log(`Found ${$('div.random-item').length} in Random`)
+        grabRandomItemInfo($);
+        return $;
     }).catch((err=>{
         if(err.statusCode === 404){
             console.log('error: page not found')
-            callback(null, null, err.statusCode)
+            callback(null, err.statusCode)
         }
         return err;
     }))
+
+    grabRandomItemInfo = ($) => {
+        let itemObject = [];
+        $('div.random-item').each((i, element)=>{
+        let name = $(element).find('span.caption').text();
+            itemObject.push(
+            name = {
+                name: $(element).find('span.caption').text(),
+                href: $(element).find('a').attr('href'),
+                img: `http:${$(element).find('img').attr('src')}`
+                }
+            )
+        })
+        callback(itemObject)
+    }
 
     options.uri = url;
 }
