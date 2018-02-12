@@ -12,7 +12,7 @@ const options = {
 
 var api = {};
 
-api.getAll = (category, callback) =>{
+api.getAll = (category, callback) => {
     if(category === 'all' || 'new')
         options.uri += `/shop/${category}/`;
     else{
@@ -74,6 +74,16 @@ api.getItem = (category, callback) => {
         }
         callback(productData);
     }
+
+    options.uri = url;
+}
+
+api.getRandom = () => {
+    options.uri += '/random/';
+
+    rp(options).then(($)=>{
+        console.log($)
+    })
 
     options.uri = url;
 }
