@@ -78,8 +78,8 @@ api.getItem = (category, callback) => {
     options.uri = url;
 }
 
-api.getRandom = () => {
-    options.uri += '/random/';
+api.getRandom = (callback) => {
+    options.uri += '/random3/';
 
     rp(options).then(($)=>{
         console.log($('div.random-item').length)
