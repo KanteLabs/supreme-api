@@ -102,8 +102,7 @@ api.getRandom = (callback) => {
                 name: $(element).find('span.caption').text(),
                 href: $(element).find('a').attr('href'),
                 img: `http:${$(element).find('img').attr('src')}`
-                }
-            )
+            })
         })
         callback(itemObject)
     }
