@@ -82,8 +82,14 @@ api.getRandom = () => {
     options.uri += '/random/';
 
     rp(options).then(($)=>{
-        console.log($)
-    })
+        console.log($('div.random-item').length)
+    }).catch((err=>{
+        if(err.statusCode === 404){
+            console.log('error: page not found')
+            callback(null, null, err.statusCode)
+        }
+        return err;
+    }))
 
     options.uri = url;
 }
