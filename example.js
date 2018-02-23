@@ -1,7 +1,7 @@
-var categories = require('./options')
+var options = require('./options')
 var api = require('./app');
 
-api.getAll(categories.all, (product, category, err) => {
+api.getAll(options.all, (product, category, err) => {
     if (err) {
         console.log('error: ' + err);
         return err;
@@ -10,7 +10,7 @@ api.getAll(categories.all, (product, category, err) => {
     }
 });
 
-api.getItem(categories.item, (product, err) => {
+api.getItem("171160", (product, err) => {
     if (err) {
         console.log('error: ' + err);
         return err;
@@ -19,7 +19,7 @@ api.getItem(categories.item, (product, err) => {
     }
 });
 
-api.getAll(categories.category.sweatshirts, (product, category, err) => {
+api.getAll(options.category.sweatshirts, (product, category, err) => {
     if (err) {
         console.log('error: ' + err);
         return err;
@@ -33,6 +33,7 @@ api.getRandom((res, err)=>{
         console.log('error: ' + err);
         return err;
     }else{
-        console.log(res);
+        // console.log(res);
+        return res;
     }
 })

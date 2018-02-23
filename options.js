@@ -1,7 +1,6 @@
-const categories = {
+const options = {
     all: 'all',
     new: 'new',
-    item: 'sweatshirts/riywuemd0/yy8sbq0kn',
     category: {
         sweatshirts: 'sweatshirts',
         hats: 'hats',
@@ -17,4 +16,4 @@ const categories = {
     }
 }
 
-module.exports = categories;
+module.exports = options;
