@@ -16,7 +16,7 @@ api.getAll = (category, callback) => {
     if(category === 'all' || 'new')
         options.uri += `/shop/${category}/`;
     else{
-        options.uri += `/shop/all/${category}/`;
+        options.uri += `/mobile/#categories/${category}/`;
     }
 
     // '$' is used by cheerio to represent data retrieved 
