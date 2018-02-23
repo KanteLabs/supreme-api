@@ -19,6 +19,7 @@
   "author": "Amidou Kante <kamidou95@gmail.com> (https://amidoukante.com)",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "cheerio": "^0.19.0",
     "express": "^4.16.2",
     "request": "^2.58.0",

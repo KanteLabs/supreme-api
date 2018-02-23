@@ -1,5 +1,6 @@
 const rp = require('request-promise');
 const cheerio = require('cheerio');
+const axios = require('axios')
 
 const url = 'https://www.supremenewyork.com';
 
@@ -35,45 +36,50 @@ api.getAll = (category, callback) => {
     options.uri = url;
 }
 
-api.getItem = (category, callback) => {
-    options.uri += `/shop/${category}`;
+api.getItem = (itemId, callback) => {
+    options.uri += `/shop/${itemId}.json`;
+    axios.get(options.uri).then((res)=>{
+        console.log(res.data)
+    })
 
-    rp(options)
-        .then(($)=>{
-            console.log(`found: ${$('#details h1').text()}`)
-            grabProductData($);
-            return $;
-        })
-        .catch((err)=>{
-            if(err.statusCode === 404){
-                console.log('error: 404 supreme webshop is closed. check back later')
-                callback(null, err.statusCode)
-            }
-            return err;
-        })
+    // rp(options)
+    //     .then((res)=>{
+    //         // console.log(`found: ${$('#details h1').text()}`)
+    //         // grabProductData($);
+    //         console.log(res)
+    //         // callback(res)
+    //         return $;
+    //     })
+    //     .catch((err)=>{
+    //         if(err.statusCode === 404){
+    //             console.log('error: 404 supreme webshop is closed. check back later')
+    //             callback(null, err.statusCode)
+    //         }
+    //         return err;
+    //     })
 
-    grabProductData = (productHTML)=> {
-        let name = productHTML('h1.protect').text();
-        let main_image = `http:${productHTML('#img-main').attr('src')}`;
-        let variations = [];
+    // grabProductData = (productHTML)=> {
+    //     let name = productHTML('h1.protect').text();
+    //     let main_image = `http:${productHTML('#img-main').attr('src')}`;
+    //     let variations = [];
 
-        productHTML('.styles li a').each((i, element) => {
-            variations.push(element.attribs);
-        });
+    //     productHTML('.styles li a').each((i, element) => {
+    //         variations.push(element.attribs);
+    //     });
 
-        let productData = {
-            name: name,
-            color: productHTML('p.style.protect').text(),
-            price: productHTML('p.price span').text(),
-            main_image: main_image,
-            category: productHTML('h1.protect').attr('data-category'),
-            date: productHTML('h1.protect').attr('data-rd'),
-            season: productHTML('h1.protect').attr('data-ino'),
-            description: productHTML('p.description').text(),
-            variations: variations,
-        }
-        callback(productData);
-    }
+    //     let productData = {
+    //         name: name,
+    //         color: productHTML('p.style.protect').text(),
+    //         price: productHTML('p.price span').text(),
+    //         main_image: main_image,
+    //         category: productHTML('h1.protect').attr('data-category'),
+    //         date: productHTML('h1.protect').attr('data-rd'),
+    //         season: productHTML('h1.protect').attr('data-ino'),
+    //         description: productHTML('p.description').text(),
+    //         variations: variations,
+    //     }
+    //     callback(productData);
+    // }
 
     options.uri = url;
 }
