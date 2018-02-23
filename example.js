@@ -15,7 +15,8 @@ api.getItem("171160", (product, err) => {
         console.log('error: ' + err);
         return err;
     }else{
-        console.log(product);
+        console.log(`found item: ${product.ino}`);
+        return product;
     }
 });
 
