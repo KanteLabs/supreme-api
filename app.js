@@ -2,7 +2,7 @@ const rp = require('request-promise');
 const cheerio = require('cheerio');
 const axios = require('axios')
 
-const url = 'https://www.supremenewyork.com';
+const url = 'http://www.supremenewyork.com';
 
 const options = {
     uri: url,
@@ -14,24 +14,41 @@ const options = {
 var api = {};
 
 api.getAll = (category, callback) => {
-    if(category === 'all' || 'new')
+    if(category === 'all' || category === 'new'){
         options.uri += `/shop/${category}/`;
-    else{
-        options.uri += `/mobile/#categories/${category}/`;
-    }
 
-    // '$' is used by cheerio to represent data retrieved 
-    rp(options).then(($)=>{
-        callback($('img').length, category)
-        return $;
-    }).catch((err=>{
-        if(err.statusCode === 404){
-            console.log('error: 404 supreme webshop is closed. check back later')
-            callback(null, null, err.statusCode)
+        rp(options).then(($)=>{
+            callback($('img').length, category)
+            return $;
+        }).catch((err=>{
+            if(err.statusCode === 404){
+                console.log('error: 404 supreme webshop is closed. check back later')
+                callback(null, null, err.statusCode)
+            }
+            return err;
+        }))
+    }else{
+
+        options.uri += '/mobile_stock.json';
+
+        async function getProducts() {
+            try {
+                const response = await axios.get(options.uri, {
+                    headers: {
+                        Accept: 'application/json, text/plain, */*',
+                        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1'
+                    }
+                });
+                let categoryData = response.data.products_and_categories[`${category}`];
+                callback(categoryData.length, category)
+            } catch (error) {
+                console.error(error)
+                callback(null, null, error)
+            }
         }
-        return err;
-    }))
-
+        getProducts()
+    }
+    
     //Resets uri for next query
     options.uri = url;
 }
