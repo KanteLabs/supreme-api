@@ -22,7 +22,6 @@ Requests:
 - [x] /random/
 - [x] Check if Shop is Open
 
-
 Example to fetch a product. All you have to pass to the API is the product id.
 
 ```javascript
@@ -49,6 +48,8 @@ api.getAll(options.category.sweatshirts, (product, category, err) => {
     }
 });
 ```
+
+[api-call](api-call.png)
 
 The API sends request using mobile headers. This allows you to be able to accurately retrieve data. 
 
