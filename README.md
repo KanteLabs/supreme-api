@@ -8,11 +8,39 @@ clone or download and run ```npm install ```
 ## Features
 Requests:
 - [ ] All Items
-- [ ] Single Item
-- [ ] Fetch by Categories
+- [x] Single Item
+- [x] Fetch by Categories
 - [ ] Fetch by New
 - [x] /random/
 - [x] Check if Shop is Open
+
+
+Example to fetch a product. All you have to pass to the API is the product id.
+
+```javascript
+api.getItem("171200", (product, stockStatus, err) => {
+    if (err) {
+        console.log('error: ' + err);
+        return err;
+    }else{
+        console.log(`found item: ${product.ino} and stock count is ${stockStatus}`);
+        return product;
+    }
+});
+```
+
+Example to fetch by category. You can change the category from sweatshirts, to any of the 11 categories supreme uses. 
+
+```javascript
+api.getAll(options.category.sweatshirts, (product, category, err) => {
+    if (err) {
+        console.log('error: ' + err);
+        return err;
+    }else{
+        console.log(`${product} found in ${category}`);
+    }
+});
+```
 
 ## Future Improvements
 * Watch certain items function
