@@ -49,7 +49,7 @@ api.getAll(options.category.sweatshirts, (product, category, err) => {
 });
 ```
 
-![api-call](./api-call.png)
+![api-call](api-call.png)
 
 
 The API sends request using mobile headers. This allows you to be able to accurately retrieve data. 
