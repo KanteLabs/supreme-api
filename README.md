@@ -4,18 +4,21 @@ I decided to create a Node.js API for [supremenewyork.com](http://www.supremenew
 
 ## How to install
 1. clone or download and run ```npm install ```
-2. Where you want to use the API, you must first require it. 
-    ```javascript
-    const options = require('./options')
-    const api = require('./app');
-    ```
+2. Where you want to use the API, you must first require it.
+
+```javascript
+const options = require('./options')
+const api = require('./app');
+```
+
+3. You can use the example.js file as a guide for how you can do requests or implement your own way. 
 
 ## Features
 Requests:
-- [ ] All Items
+- [x] All Items
 - [x] Single Item
 - [x] Fetch by Categories
-- [ ] Fetch by New
+- [x] Fetch by New
 - [x] /random/
 - [x] Check if Shop is Open
 
@@ -47,9 +50,34 @@ api.getAll(options.category.sweatshirts, (product, category, err) => {
 });
 ```
 
+The API sends request using mobile headers. This allows you to be able to accurately retrieve data. 
+
+```javascript
+options.uri += '/mobile_stock.json';
+
+async function getProducts() {
+    try {
+        const response = await axios.get(options.uri, {
+            headers: {
+                Accept: 'application/json, text/plain, */*',
+                'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1'
+            }
+        });
+        let categoryData = response.data.products_and_categories[`${category}`];
+        callback(categoryData.length, category)
+    } catch (error) {
+        console.error(error)
+        callback(null, null, error)
+    }
+}
+getProducts()
+```
+
+
 ## Future Improvements
 * Watch certain items function
-    * watch a category
+* watch a category
+* POST request for certain items
 
 ## Contribution
 Want to make a contribution? Fork the repo, add your changes, and submit a pull request. Any type of contributions (ideas, bug fixes, fixing typos, etc.) will be appreciated!

@@ -40,7 +40,7 @@ api.getAll = (category, callback) => {
                     }
                 });
                 let categoryData = response.data.products_and_categories[`${category}`];
-                callback(categoryData.length, category)
+                callback(categoryData, category)
             } catch (error) {
                 console.error(error)
                 callback(null, null, error)
