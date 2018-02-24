@@ -40,12 +40,29 @@ api.getItem = (itemId, callback) => {
     options.uri += `/shop/${itemId}.json`;
 
     axios.get(options.uri).then((res)=>{
-        callback(res.data)
+        checkStock(res.data)
         return res.data;
     }).catch(err=>{
-        callback(null, err)
+        callback(null, null, err)
         return err;
     })
+
+    checkStock = (product) => {
+        if(product.styles.length > 1 ) {
+            product.styles.map((style, i)=>{
+                stockBySize(style)
+            })
+        }
+    }
+
+    stockBySize = (style) => {
+        let stockCount = 0;
+        style.sizes.map((size, x)=>{
+            !size.stock_level ? stockCount++ : null;
+        })
+
+        stockCount === style.sizes.length ? callback()
+    }
 
     options.uri = url;
 }
