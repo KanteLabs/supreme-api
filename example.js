@@ -10,7 +10,7 @@ api.getAll(options.all, (product, category, err) => {
     }
 });
 
-api.getItem("171194", (product, stockStatus, err) => {
+api.getItem("171160", (product, stockStatus, err) => {
     if (err) {
         console.log('error: ' + err);
         return err;

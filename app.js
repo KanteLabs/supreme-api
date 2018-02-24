@@ -49,9 +49,11 @@ api.getItem = (itemId, callback) => {
 
     checkStock = (product) => {
         if(product.styles.length > 1 ) {
+            let stockCount = 0;
             product.styles.map((style, i)=>{
-                stockBySize(style, product)
+                stockCount = stockBySize(style, product);
             })
+            callback(product, stockCount)
         }else{
             let stockCount = product.styles[0].sizes[0].stock_level;
 
@@ -65,7 +67,7 @@ api.getItem = (itemId, callback) => {
             !size.stock_level ? stockCount++ : null;
         })
         if(stockCount === style.sizes.length){
-            return "sold out";
+            return 0;
         }else{
             return (style.sizes.length - stockCount);
         }
