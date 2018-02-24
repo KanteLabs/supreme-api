@@ -1,5 +1,5 @@
-var options = require('./options')
-var api = require('./app');
+const options = require('./options')
+const api = require('./app');
 
 api.getAll(options.all, (product, category, err) => {
     if (err) {

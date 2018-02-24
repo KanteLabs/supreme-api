@@ -3,7 +3,12 @@ I decided to create a Node.js API for [supremenewyork.com](http://www.supremenew
 
 
 ## How to install
-clone or download and run ```npm install ```
+1. clone or download and run ```npm install ```
+2. Where you want to use the API, you must first require it. 
+    ```javascript
+    const options = require('./options')
+    const api = require('./app');
+    ```
 
 ## Features
 Requests:
